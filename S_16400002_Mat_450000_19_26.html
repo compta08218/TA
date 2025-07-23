@@ -198,7 +198,10 @@
 
     <div class="container">
         <header>
-            <h1>Tableau d'Amortissement</h1>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h1>Tableau d'Amortissement</h1>
+                <button id="logout-button" style="background-color: #e74c3c; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 14px; transition: background-color 0.3s ease;">Se déconnecter</button>
+            </div>
             <div class="loan-summary">
                 <div class="summary-item"><strong>N° Dossier:</strong> <span>16400002</span></div>
                 <div class="summary-item"><strong>Emprunteur:</strong> <span>BAKITO</span></div>
@@ -236,6 +239,9 @@
         </main>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+    <script src="dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
