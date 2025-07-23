@@ -47,11 +47,25 @@ async function checkSession() {
 // ---------------------------------------------------------------------------------
 
 // Attacher l'événement de déconnexion au bouton
-logoutButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    signOut();
-});
+// On le fait à l'intérieur de checkSession pour s'assurer que le client est prêt
+// logoutButton.addEventListener('click', (event) => {
+//     event.preventDefault();
+//     signOut();
+// });
 
 // Vérifier la session dès que le contenu de la page est chargé
 // C'est la première chose à faire pour sécuriser la page.
-document.addEventListener('DOMContentLoaded', checkSession);
+document.addEventListener('DOMContentLoaded', async () => {
+    const { data: { session } } = await supabaseClient.auth.getSession();
+    if (!session) {
+        console.log('Aucune session active. Redirection vers la page de connexion.');
+        window.location.href = './index.html';
+    } else {
+        console.log('Session valide. Accès autorisé.');
+        // Attacher l'événement de déconnexion seulement si la session est valide
+        logoutButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            signOut();
+        });
+    }
+});
