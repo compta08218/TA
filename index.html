@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portail de Connexion - Expert-Comptable</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Accès Sécurisé</h2>
+            <p>Veuillez entrer votre mot de passe pour accéder à vos tableaux de bord.</p>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" id="login-button">Se connecter</button>
+            </form>
+            <p id="error-message" class="error-message"></p>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>
